@@ -8,7 +8,7 @@ import axios from 'axios';
 })
 
 export class PersonService {
-  private apiUrl = 'http://localhost:8000/api/v1';
+  private apiUrl = 'https://assignment-11bo.onrender.com/api/v1';
   constructor(){}
 
   async getPersons(): Promise<Person[]> {
