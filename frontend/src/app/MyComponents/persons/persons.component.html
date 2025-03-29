@@ -1,0 +1,9 @@
+<div>
+    <app-add-person (personAdd)="addPerson($event)"></app-add-person>
+    <div *ngIf="loading" class="spinner-container">
+        <div class="spinner"></div>
+    </div>    
+    <div *ngFor = "let person of persons">
+        <app-person-item [person] = "person" (personDelete)="deletePerson($event)" (personEdit)="editPerson($event)"></app-person-item>
+    </div>
+</div>

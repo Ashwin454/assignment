@@ -1,0 +1,63 @@
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <tr>
+        <th>Name</th>
+        <td>{{ person.name }}</td>
+      </tr>
+      <tr>
+        <th>Age</th>
+        <td>{{ person.age }}</td>
+      </tr>
+      <tr>
+        <th>Gender</th>
+        <td>{{ person.gender }}</td>
+      </tr>
+      <tr>
+        <th>Phone</th>
+        <td>{{ person.phone }}</td>
+      </tr>
+      <tr>
+        <td colspan="2" class="text-center">
+            <button class="custom-delete-button" (click)="onDelete()">🗑️ Delete</button>
+            <button class="custom-edit-button" (click)="onEdit()">✏️ Edit</button>
+        </td>
+      </tr>
+    </table>
+</div>
+
+<div class="modal fade" #editModal tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Person</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-2">
+            <label>Name</label>
+            <input class="form-control" [(ngModel)]="selectedPerson.name" />
+          </div>
+          <div class="mb-2">
+            <label>Age</label>
+            <input type="number" class="form-control" [(ngModel)]="selectedPerson.age" />
+          </div>
+          <div class="mb-2">
+            <label>Gender</label>
+            <select class="form-control" [(ngModel)]="selectedPerson.gender">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="mb-2">
+            <label>Phone</label>
+            <input type="number" class="form-control" [(ngModel)]="selectedPerson.phone" />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" (click)="onSaveChanges()">Save Changes</button>
+        </div>
+      </div>
+    </div>
+</div>
